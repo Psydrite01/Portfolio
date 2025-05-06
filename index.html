@@ -857,96 +857,133 @@
       
   
 
-<!-- Contact Section -->
+ <!-- Contact Section -->
 <section id="contact" class="section contact-section">
     <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-description">Have a project in mind? Let's discuss how I can help bring your Android app idea to life.</p>
-        
-        <div class="contact-grid">
-            <div class="contact-form-container">
-                <div class="direct-email">
-                    <span>Direct Email:</span>
-                    <a href="mailto:prudompdutta2017@gmail.com" class="email-link">
-                        <i class="fas fa-envelope"></i> prudompdutta2017@gmail.com
-                    </a>
-                    <a href="mailto:psydriteofficial@gmail.com" class="email-link">
-                        <i class="fas fa-envelope"></i> psydriteofficial@gmail.com
-                    </a>
-                </div>
-                
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" placeholder="Your name" class="form-input">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="your.email@example.com" class="form-input">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="project-type">Project Type</label>
-                        <select id="project-type" class="form-input">
-                            <option value="" selected disabled>Select project type</option>
-                            <option value="app">Android App</option>
-                            <option value="ui">UI/UX Design</option>
-                            <option value="both">App Development & Design</option>
-                            <option value="consultation">Consultation</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" placeholder="Tell me about your project" class="form-input form-textarea"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">Send Message</button>
-                </form>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-description">
+        Have a project in mind? Let's discuss how I can help bring your Android app idea to life.
+      </p>
+  
+      <div class="contact-grid">
+        <div class="contact-form-container">
+          <div class="direct-email">
+            <span>Direct Email:</span>
+            <a href="mailto:prudompdutta2017@gmail.com" class="email-link">
+              <i class="fas fa-envelope"></i> prudompdutta2017@gmail.com
+            </a>
+            <a href="mailto:psydriteofficial@gmail.com" class="email-link">
+              <i class="fas fa-envelope"></i> psydriteofficial@gmail.com
+            </a>
+          </div>
+  
+          <form class="contact-form" onsubmit="sendMail(event)">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your name" class="form-input" required>
             </div>
-            
-            <div class="contact-info-container">
-                <div class="contact-info-card">
-                    <h3>Contact Information</h3>
-                    
-                    <div class="contact-info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Email</h4>
-                            <p>prudompdutta2017@gmail.com</p>
-                            <p>psydriteofficial@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Location</h4>
-                            <p>Jorhat, Assam, India</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="availability-card">
-                    <h3>Availability</h3>
-                    <p>Currently accepting new projects with the following timeline:</p>
-                    
-                    <ul class="availability-list">
-                        <li><i class="fas fa-check-circle"></i> Small projects: Available immediately</li>
-                        <li><i class="fas fa-check-circle"></i> Medium projects: 2-3 weeks lead time</li>
-                        <li><i class="fas fa-check-circle"></i> Large projects: 1 month lead time</li>
-                    </ul>
-                </div>
+  
+            <!-- Email field removed -->
+  
+            <div class="form-group">
+              <label for="project-type">Project Type</label>
+              <select id="project-type" class="form-input" required>
+                <option value="" selected disabled>Select project type</option>
+                <option value="Android App">Android App</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="App Development & Design">App Development & Design</option>
+                <option value="Consultation">Consultation</option>
+              </select>
             </div>
+  
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Tell me about your project" class="form-input form-textarea" required></textarea>
+            </div>
+  
+            <button type="button" id="sendEmailBtn" class="btn-submit">Send Message</button>
+          </form>
         </div>
+  
+        <div class="contact-info-container">
+          <div class="contact-info-card">
+            <h3>Contact Information</h3>
+  
+            <div class="contact-info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h4>Email</h4>
+                <p>prudompdutta2017@gmail.com</p>
+                <p>psydriteofficial@gmail.com</p>
+              </div>
+            </div>
+  
+            <div class="contact-info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-content">
+                <h4>Location</h4>
+                <p>Jorhat, Assam, India</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="availability-card">
+            <h3>Availability</h3>
+            <p>Currently accepting new projects with the following timeline:</p>
+  
+            <ul class="availability-list">
+              <li><i class="fas fa-check-circle"></i> Small projects: Available immediately</li>
+              <li><i class="fas fa-check-circle"></i> Medium projects: 2-3 weeks lead time</li>
+              <li><i class="fas fa-check-circle"></i> Large projects: 1 month lead time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+  
+  <!-- JavaScript -->
+  <script>
+    function sendMail(event) {
+      event.preventDefault();
+  
+      const name = document.getElementById("name").value.trim();
+      const type = document.getElementById("project-type").value;
+      const message = document.getElementById("message").value.trim();
+  
+      const subject = encodeURIComponent(`${name}, ${type}`);
+      const body = encodeURIComponent(message);
+  
+      const mailtoLink = `mailto:psydriteofficial@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
+    }
 
+  document.getElementById('sendEmailBtn').addEventListener('click', function () {
+    const name = document.getElementById('name').value.trim();
+    const projectType = document.getElementById('project-type').value;
+    const message = document.getElementById('message').value.trim();
+
+    // Simple validation (optional)
+    if (!name || !projectType || !message) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    const subject = encodeURIComponent(`${name}, ${projectType}`);
+    const body = encodeURIComponent(message);
+    const mailtoLink = `mailto:psydriteofficial@gmail.com?subject=${subject}&body=${body}`;
+
+    // Redirect to mail client
+    window.location.href = mailtoLink;
+  });
+
+
+  </script>
+  
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
