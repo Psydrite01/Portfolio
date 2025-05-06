@@ -6,13 +6,19 @@
     <title>Prudam Dutta - Android Developer & UI/UX Designer</title>
     <style>
         .project-scroll-container {
+  position: relative;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 1rem;
   gap: 1.5rem;
   flex-wrap: nowrap;
+
+  mask-image: linear-gradient(to right, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 96%, transparent 100%);
 }
+
+
 
         .project-card {
   flex: 0 0 clamp(470px, 30vw, 350px); /* Min 300px, max 350px scaling with screen size */
@@ -34,9 +40,13 @@
   gap: 1rem;
   padding: 1rem 0;
   scroll-snap-type: x mandatory;
-  width: 100%; /* Ensure container is wide enough */
+  width: 100%;
   scrollbar-width: none;
+
+  mask-image: linear-gradient(to right, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 96%, transparent 100%);
 }
+
 
 .testimonial-card {
   background-color: #2c2c2c; /* Blackish gray background */
@@ -100,6 +110,7 @@
             background-color: var(--dark-bg);
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -202,29 +213,76 @@
         }
         
         .hero-bubbles {
-            position: relative;
-        }
+    display: flex;
+    flex-direction: row;
+    gap: 0px; /* No gap so they can overlap */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
         
-        .bubble {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .bubble-1 {
-            background: linear-gradient(135deg, #7633FF 0%, #4D9FFF 100%);
-            margin-bottom: 20px;
-        }
-        
-        .bubble-2 {
-            background: linear-gradient(135deg, #36D1A0 0%, #44D7B6 100%);
-            margin-left: 60px;
-        }
+.bubble {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.bubble img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.bubble-1 {
+    width: 220px;
+    height: 220px;
+    background: linear-gradient(135deg, #7633FF 0%, #4D9FFF 100%);
+    box-shadow:
+        0 0 0 4px #000,
+        0 0 0 8px #3DDC84;
+    position: relative;
+    top: -20px;        /* Raise bubble 1 */
+    z-index: 2;        /* Place it above bubble 2 */
+    margin-right: -40px; /* Overlap ~20% */
+}
+
+.bubble-2 {
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #36D1A0 0%, #44D7B6 100%);
+    box-shadow:
+        0 0 0 4px #000,
+        0 0 0 8px #9C7CFF;
+    position: relative;
+    top: 60px;         /* Push bubble 2 down */
+    z-index: 1;        /* Behind bubble 1 */
+}
+@keyframes slow-rotate {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+.bubble-3 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(to right, rgba(61, 220, 132, 0.17), rgba(156, 124, 255, 0.17));
+    position: absolute;
+    top: -100px;
+    left: 90%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    z-index: 0; /* Behind others */
+    filter: blur(60px); /* Smooth edges */
+    animation: slow-rotate 20s linear infinite;
+}
+
         
         /* CTA Buttons */
         .cta-buttons {
@@ -433,6 +491,10 @@
             align-items: center;
             gap: 15px;
         }
+        .skill-item .skill-icon span {
+            color: #44D7B6;
+}
+
         
         .skill-icon {
             width: 80px;
@@ -602,23 +664,22 @@
     
     </style>
 </head>
-<body>
+<body id="top">
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">Prudam<span>Dutta</span></a>
+            <a href="#top" class="logo">Prudam<span>Dutta</span></a>
             <nav class="nav-links">
-                <a href="#portfolio" class="active">Portfolio</a>
+                <a href="#top" class="active">Portfolio</a>
                 <a href="#clients">Clients</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
-                <button class="theme-toggle">🌓</button>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero container">
+    <section id = "portfolio" class="hero container">
         <div class="hero-content">
             <h1>Android<br>Developer<br><span class="highlight">Kotlin Specialist</span></h1>
             <p>Crafting beautiful, performant mobile experiences with Jetpack Compose and modern Android development techniques.</p>
@@ -629,18 +690,81 @@
         </div>
         <div class="hero-image">
             <div class="hero-bubbles">
+                <div class="bubble bubble-3"></div> <!-- New red bubble -->
                 <div class="bubble bubble-1">
-                    <img src="res/uesrprofile.jpg" alt="Design illustration">
+                    <img src="res/profile1.jpeg" alt="Design illustration">
                 </div>
                 <div class="bubble bubble-2">
-                    <img src="res/uesrprofile.jpg" alt="Design illustration">
+                    <img src="res/profile2.jpeg" alt="Design illustration">
                 </div>
             </div>
         </div>
     </section>
 
+    
+    <!-- Skills Section -->
+<section id="skills" class="section container">
+    <div class="skills-grid">
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span style="display: inline-block; transform: rotate(90deg)">▭</span>
+            </div>
+            <div class="skill-name">Android SDK</div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>&lt;/&gt;</span>
+            </div>
+            <div class="skill-name">Kotlin</div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>⊞</span>
+            </div>
+            <div class="skill-name">Jetpack Compose</div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>C++</span>
+            </div>
+            <div class="skill-name">C/C++</div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>&lt;/&gt;</span>
+            </div>
+            <div class="skill-name">Python</div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>↗↙</span>
+            </div>
+            <div class="skill-name">MVVM</div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>≡</span>
+            </div>
+            <div class="skill-name">Firebase/Firestore</div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>☁︎</span>
+            </div>
+            <div class="skill-name">Git/GitHub</div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>✎</span>
+            </div>
+            <div class="skill-name">Figma</div>
+        </div>
+    </div>
+</section>
+
+
     <!-- Client Projects Section -->
-    <section id="client-projects" class="section container">
+    <section id="clients" class="section container">
         <h2 class="section-title">Client Projects</h2>
         <p class="section-description">A selection of custom Android applications developed for clients across various industries, demonstrating versatility and problem-solving abilities.</p>
         
@@ -666,182 +790,107 @@
 
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section container">
-        <div class="skills-grid">
-            <div class="skill-item">
-                <div class="skill-icon">📱</div>
-                <div class="skill-name">Android SDK</div>
+    <!-- About Section -->
+    <section id="about" class="section container">
+        <h2 class="section-title">About Me</h2>
+        
+        <div class="about-content">
+            <div class="about-image">
+                <img src="res/uesrprofile.jpg" alt="Prudam's profile image" class="profile-image">
             </div>
-            <div class="skill-item">
-                <div class="skill-icon">&lt;/&gt;</div>
-                <div class="skill-name">Kotlin</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">⊞</div>
-                <div class="skill-name">Jetpack Compose</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">&lt;/&gt;</div>
-                <div class="skill-name">C/C++</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">🧪</div>
-                <div class="skill-name">Python</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">📦</div>
-                <div class="skill-name">MVVM</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">🗄️</div>
-                <div class="skill-name">Firebase/Firestore</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">🔀</div>
-                <div class="skill-name">Git/GitHub</div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">🎨</div>
-                <div class="skill-name">Figma</div>
+            <div class="about-text">
+                <p class="about-description">
+                    I'm Prudam Dutta, an Android developer passionate about creating beautiful, 
+                    functional mobile applications using Kotlin and Jetpack Compose. I specialize in 
+                    crafting intuitive user experiences that combine aesthetic design with technical 
+                    excellence.
+                </p>
+                <p class="about-description mt-30">
+                    Currently pursuing my B.Tech in ECE at Tezpur University, I also work as a 
+                    freelance Android developer on various client projects. I'm skilled in UI/UX 
+                    design with tools like Figma and Adobe Illustrator, and I'm passionate about 
+                    building clean, user-centric mobile apps that solve real-world problems.
+                </p>
+                
+                <div class="education-section mt-30">
+                    <h3 class="sub-heading">Education</h3>
+                    <div class="education-item">
+                        <div class="edu-icon">🎓</div>
+                        <div class="edu-details">
+                            <h4>B.Tech ECE, Tezpur University</h4>
+                            <p>2023 - Present</p>
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="edu-icon">🎓</div>
+                        <div class="edu-details">
+                            <h4>Higher Secondary, Pragya Academy</h4>
+                            <p>2020 - 2022</p>
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="edu-icon">🏆</div>
+                        <div class="edu-details">
+                            <h4>JEE Mains 2023</h4>
+                            <p>92 percentile</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links mt-30">
+                    <a href="#" class="social-icon">
+                        <div class="icon-circle">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <div class="icon-circle">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <div class="icon-circle">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <div class="icon-circle">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <div class="icon-circle">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.querySelector('.theme-toggle');
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-            
-            if (document.body.classList.contains('light-theme')) {
-                themeToggle.textContent = '🌙';
-            } else {
-                themeToggle.textContent = '🌓';
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-
-    <!-- About Section -->
-<section id="about" class="section container">
-    <h2 class="section-title">About Me</h2>
-    
-    <div class="about-content">
-        <div class="about-image">
-            <img src="res/uesrprofile.jpg" alt="Prudam's profile image" class="profile-image">
-        </div>
-        <div class="about-text">
-            <p class="about-description">
-                I'm Prudam Dutta, an Android developer passionate about creating beautiful, 
-                functional mobile applications using Kotlin and Jetpack Compose. I specialize in 
-                crafting intuitive user experiences that combine aesthetic design with technical 
-                excellence.
-            </p>
-            <p class="about-description mt-30">
-                Currently pursuing my B.Tech in ECE at Tezpur University, I also work as a 
-                freelance Android developer on various client projects. I'm skilled in UI/UX 
-                design with tools like Figma and Adobe Illustrator, and I'm passionate about 
-                building clean, user-centric mobile apps that solve real-world problems.
-            </p>
-            
-            <div class="education-section mt-30">
-                <h3 class="sub-heading">Education</h3>
-                <div class="education-item">
-                    <div class="edu-icon">🎓</div>
-                    <div class="edu-details">
-                        <h4>B.Tech ECE, Tezpur University</h4>
-                        <p>2023 - Present</p>
-                    </div>
+    <!-- Stats Section -->
+    <section id="stats" class="section stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">2+</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
-                <div class="education-item">
-                    <div class="edu-icon">🎓</div>
-                    <div class="edu-details">
-                        <h4>Higher Secondary, Pragya Academy</h4>
-                        <p>2020 - 2022</p>
-                    </div>
+                <div class="stat-item">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Projects Completed</div>
                 </div>
-                <div class="education-item">
-                    <div class="edu-icon">🏆</div>
-                    <div class="edu-details">
-                        <h4>JEE Mains 2023</h4>
-                        <p>92 percentile</p>
-                    </div>
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">App Downloads</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Happy Clients</div>
                 </div>
             </div>
-            
-            <div class="social-links mt-30">
-                <a href="#" class="social-icon">
-                    <div class="icon-circle">
-                        <i class="fab fa-github"></i>
-                    </div>
-                </a>
-                <a href="#" class="social-icon">
-                    <div class="icon-circle">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                </a>
-                <a href="#" class="social-icon">
-                    <div class="icon-circle">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                </a>
-                <a href="#" class="social-icon">
-                    <div class="icon-circle">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                </a>
-                <a href="#" class="social-icon">
-                    <div class="icon-circle">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </a>
-            </div>
         </div>
-    </div>
-</section>
-
-<!-- Stats Section -->
-<section id="stats" class="section stats-section">
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">2+</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">12+</div>
-                <div class="stat-label">Projects Completed</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">10K+</div>
-                <div class="stat-label">App Downloads</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">8+</div>
-                <div class="stat-label">Happy Clients</div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Testimonials Section -->
     <section class="section container">
@@ -851,37 +900,36 @@
         <div class="testimonial-scroll-container" id="testimonialContainer">
           <!-- JS will inject testimonials here -->
         </div>
-      </section>
+    </section>
       
-      <script src="loadTestimonials.js" defer></script>
+    <script src="loadTestimonials.js" defer></script>
       
-  
-
- <!-- Contact Section -->
-<section id="contact" class="section contact-section">
-    <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-description">
-        Have a project in mind? Let's discuss how I can help bring your Android app idea to life.
-      </p>
-  
-      <div class="contact-grid">
-        <div class="contact-form-container">
-          <div class="direct-email">
-            <span>Direct Email:</span>
-            <a href="mailto:prudompdutta2017@gmail.com" class="email-link">
-              <i class="fas fa-envelope"></i> prudompdutta2017@gmail.com
-            </a>
-            <a href="mailto:psydriteofficial@gmail.com" class="email-link">
-              <i class="fas fa-envelope"></i> psydriteofficial@gmail.com
-            </a>
-          </div>
-  
-          <form class="contact-form" onsubmit="sendMail(event)">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" placeholder="Your name" class="form-input" required>
-            </div>
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-description">
+            Have a project in mind? Let's discuss how I can help bring your Android app idea to life.
+          </p>
+      
+          <div class="contact-grid">
+            <div class="contact-form-container">
+              <div class="direct-email">
+                <span>Direct Email:</span>
+                <a href="mailto:prudompdutta2017@gmail.com" class="email-link">
+                  <i class="fas fa-envelope"></i> prudompdutta2017@gmail.com
+                </a>
+                <a href="mailto:psydriteofficial@gmail.com" class="email-link">
+                  <i class="fas fa-envelope"></i> psydriteofficial@gmail.com
+                </a>
+              </div>
+      
+              <form class="contact-form" onsubmit="sendMail(event)">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" placeholder="Your name" class="form-input" required>
+                </div>
+      
   
             <!-- Email field removed -->
   
@@ -1115,91 +1163,7 @@
         font-size: 18px;
         color: rgba(255, 255, 255, 0.8);
     }
-    
-    /* Testimonials Styles */
-    /* .testimonial-slider {
-        position: relative;
-        margin-top: 40px;
-    }
-    
-    .testimonial-navigation {
-        position: absolute;
-        width: 100%;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: space-between;
-        pointer-events: none;
-        z-index: 10;
-    } */
-    
-    /* .nav-button {
-        background: rgba(68, 215, 182, 0.2);
-        color: var(--primary-color);
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: auto;
-        transition: all 0.3s;
-    }
-    
-    .nav-button:hover {
-        background: var(--primary-color);
-        color: var(--dark-bg);
-    } */
-    
-    /* .testimonials-container {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .testimonial-card {
-        background-color: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        padding: 30px;
-        display: none;
-    }
-    
-    .testimonial-card.active {
-        display: block;
-    }
-    
-    .testimonial-text {
-        font-size: 18px;
-        line-height: 1.7;
-        color: rgba(255, 255, 255, 0.9);
-        margin-bottom: 20px;
-        font-style: italic;
-    }
-    
-    .testimonial-author {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 20px;
-    }
-    
-    .author-name {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 5px;
-    }
-    
-    .author-role {
-        color: var(--primary-color);
-        margin-bottom: 3px;
-    }
-    
-    .author-company {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 14px;
-    } */
-    
+
     /* Contact Section Styles */
     .contact-section {
         background-color: var(--secondary-dark);
@@ -1413,38 +1377,6 @@
         }
     }
 </style>
-
-<!-- Additional JavaScript for testimonial slider -->
-<!-- <script> -->
-    <!-- // Testimonial slider functionality -->
-    <!-- document.addEventListener('DOMContentLoaded', function() {
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        const prevButton = document.querySelector('.prev-button');
-        const nextButton = document.querySelector('.next-button');
-        let currentIndex = 0;
-        
-        function showTestimonial(index) {
-            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-            testimonials[index].classList.add('active');
-        }
-        
-        prevButton.addEventListener('click', function() {
-            currentIndex = (currentIndex === 0) ? testimonials.length - 1 : currentIndex - 1;
-            showTestimonial(currentIndex);
-        });
-        
-        nextButton.addEventListener('click', function() {
-            currentIndex = (currentIndex === testimonials.length - 1) ? 0 : currentIndex + 1;
-            showTestimonial(currentIndex);
-        });
-        
-        // Auto-rotate testimonials
-        setInterval(function() {
-            currentIndex = (currentIndex === testimonials.length - 1) ? 0 : currentIndex + 1;
-            showTestimonial(currentIndex);
-        }, 6000);
-    });
-</script> -->
 
 <!-- Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
