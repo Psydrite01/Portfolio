@@ -5,6 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prudam Dutta - Android Developer & UI/UX Designer</title>
     <style>
+        .project-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+}
+
+        .project-card {
+  flex: 0 0 clamp(470px, 30vw, 350px); /* Min 300px, max 350px scaling with screen size */
+  scroll-snap-align: start;
+  border-radius: 12px;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+    .project-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .testimonial-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+  width: 100%; /* Ensure container is wide enough */
+  scrollbar-width: none;
+}
+
+.testimonial-card {
+  background-color: #2c2c2c; /* Blackish gray background */
+  color: #fff; /* White font color for testimonials */
+  display: flex;
+  flex-direction: column;
+  width: 500px !important; /* Force width */
+  box-sizing: border-box;
+  border-radius: 10px;
+  scroll-snap-align: start;
+  padding: 15px; /* Reduced padding */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.testimonial-text {
+  background-color: transparent; /* Transparent background */
+  color: #fff; /* White text color */
+  margin-bottom: 30px;
+}
+
+.testimonial-author {
+  background-color: transparent; /* Transparent background */
+  text-align: right;
+}
+.testimonial-author .author-name,
+.testimonial-author .author-role,
+.testimonial-author .author-company {
+  text-align: right; /* Ensure the text inside the author section is left-aligned */
+}
+
+.testimonial-author div {
+  font-size: 0.85rem;
+  color: #bbb; /* Lighter text color for the author */
+}
+
+
+
+
         /* Global Styles */
         :root {
             --primary-color: #44D7B6;
@@ -14,9 +84,9 @@
             --card-bg: #242424;
             --analytics-color: #FF6B6B;
             --reminder-color: #4D9FFF;
-            --habify-gradient: linear-gradient(135deg, #36D1A0 0%, #5B6EF8 100%);
+            /* --habify-gradient: linear-gradient(135deg, #36D1A0 0%, #5B6EF8 100%);
             --blood-connect-gradient: linear-gradient(135deg, #FF5959 0%, #FF7070 100%);
-            --weather-gradient: linear-gradient(135deg, #4D9FFF 0%, #63B8FF 100%);
+            --weather-gradient: linear-gradient(135deg, #4D9FFF 0%, #63B8FF 100%); */
         }
         
         * {
@@ -529,6 +599,7 @@
                 width: 100%;
             }
         }
+    
     </style>
 </head>
 <body>
@@ -573,71 +644,13 @@
         <h2 class="section-title">Client Projects</h2>
         <p class="section-description">A selection of custom Android applications developed for clients across various industries, demonstrating versatility and problem-solving abilities.</p>
         
-        <div class="project-grid">
-            <!-- Analytics Dashboard Project -->
-            <div class="project-card">
-                <div class="project-header analytics">
-                    <div class="project-icon">Analytics Dashboard</div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Analytics Dashboard App</h3>
-                    <p class="project-description">A comprehensive analytics dashboard for a retail business client to monitor sales, inventory, and customer data in real-time with offline capability.</p>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Kotlin</span>
-                        <span class="tag purple">Jetpack Compose</span>
-                        <span class="tag">Firebase Analytics</span>
-                    </div>
-                    
-                    <div class="project-features">
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>Improved decision-making speed by providing real-time data access</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>Implemented offline mode for field operations without connectivity</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>Increased sales team productivity by 28% through mobile data access</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Smart Reminder Project -->
-            <div class="project-card">
-                <div class="project-header reminder">
-                    <div class="project-icon">Smart Reminders</div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Smart Reminder System</h3>
-                    <p class="project-description">A location-based reminder application for a corporate client that sends notifications based on proximity, time, and context awareness.</p>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Kotlin</span>
-                        <span class="tag">Geofencing</span>
-                        <span class="tag">Push Notifications</span>
-                    </div>
-                    
-                    <div class="project-features">
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>Reduced missed appointments by 65% through intelligent reminders</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>Implemented battery-efficient location tracking</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>Created custom notification rules based on user behavior patterns</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+          <div class="project-scroll-container" id="projectGrid">
+            <!-- Project cards will be injected here -->
+          </div>
+          
+          <script src="loadProjects.js"></script>
+   
     </section>
 
     <!-- Play Store Apps Section -->
@@ -645,73 +658,12 @@
         <h2 class="section-title">Play Store Apps</h2>
         <p class="section-description">Featured applications currently available on Google Play Store, showcasing my expertise in Android development with Kotlin and Jetpack Compose.</p>
         
-        <div class="project-grid">
-            <!-- Habify App -->
-            <div class="project-card">
-                <div class="project-header habify">
-                    <div class="project-icon">Habify</div>
-                    <div class="download-count">
-                        <span>1K+</span>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Habify - Habit Tracker</h3>
-                    <p class="project-description">A minimalist habit tracking app that helps users build and maintain positive habits through daily reminders and progress tracking.</p>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Kotlin</span>
-                        <span class="tag purple">Jetpack Compose</span>
-                        <span class="tag">Firebase</span>
-                    </div>
-                    
-                    <a href="#" class="store-link">View on Play Store ↗</a>
-                </div>
-            </div>
-            
-            <!-- Blood Connect App -->
-            <div class="project-card">
-                <div class="project-header blood">
-                    <div class="project-icon">Blood Connect</div>
-                    <div class="download-count">
-                        <span>5K+</span>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Blood Connect</h3>
-                    <p class="project-description">A blood donation app that connects donors with patients in need of urgent blood donations, featuring real-time notifications for emergencies.</p>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Kotlin</span>
-                        <span class="tag purple">Jetpack Compose</span>
-                        <span class="tag">Firestore</span>
-                    </div>
-                    
-                    <a href="#" class="store-link">View on Play Store ↗</a>
-                </div>
-            </div>
-            
-            <!-- Weather Now App -->
-            <div class="project-card">
-                <div class="project-header weather">
-                    <div class="project-icon">Weather Now</div>
-                    <div class="download-count">
-                        <span>10K+</span>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Weather Now</h3>
-                    <p class="project-description">A weather app with detailed forecasts, real-time alerts, and customizable widgets showing temperature, humidity, and precipitation.</p>
-                    
-                    <div class="project-tags">
-                        <span class="tag">Kotlin</span>
-                        <span class="tag purple">Material UI</span>
-                        <span class="tag">OpenWeather API</span>
-                    </div>
-                    
-                    <a href="#" class="store-link">View on Play Store ↗</a>
-                </div>
-            </div>
-        </div>
+        <div class="project-scroll-container" id = "playstoreprojectGrid">
+            <!-- Project cards will be injected here -->
+          </div>
+          
+          <script src="loadPlaystoreProjects.js"></script>
+
     </section>
 
     <!-- Skills Section -->
@@ -891,38 +843,19 @@
     </div>
 </section>
 
-<!-- Testimonials Section -->
-<section id="testimonials" class="section container">
-    <h2 class="section-title">Developer Testimonials</h2>
-    <p class="section-description">What my colleagues and collaborators say about working with me.</p>
-    
-    <div class="testimonial-slider">
-        <div class="testimonial-navigation">
-            <button class="nav-button prev-button">❮</button>
-            <button class="nav-button next-button">❯</button>
+    <!-- Testimonials Section -->
+    <section class="section container">
+        <h2 class="section-title">Developer Testimonials</h2>
+        <p class="section-description">What my clients and colleagues say about working with me.</p>
+      
+        <div class="testimonial-scroll-container" id="testimonialContainer">
+          <!-- JS will inject testimonials here -->
         </div>
-        
-        <div class="testimonials-container">
-            <div class="testimonial-card active">
-                <p class="testimonial-text">Working with Prudam was a great experience. His attention to detail and mastery of Jetpack Compose helped us create a beautiful and functional interface that our users love.</p>
-                <div class="testimonial-author">
-                    <div class="author-name">Sharma</div>
-                    <div class="author-role">UI/UX Designer</div>
-                    <div class="author-company">App Collaboration</div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">Prudam delivered our app ahead of schedule with all the features we requested and more. His communication throughout the project was excellent.</p>
-                <div class="testimonial-author">
-                    <div class="author-name">Rajiv Mehta</div>
-                    <div class="author-role">Project Manager</div>
-                    <div class="author-company">TechSolutions Inc.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+      </section>
+      
+      <script src="loadTestimonials.js" defer></script>
+      
+  
 
 <!-- Contact Section -->
 <section id="contact" class="section contact-section">
@@ -1147,7 +1080,7 @@
     }
     
     /* Testimonials Styles */
-    .testimonial-slider {
+    /* .testimonial-slider {
         position: relative;
         margin-top: 40px;
     }
@@ -1161,9 +1094,9 @@
         justify-content: space-between;
         pointer-events: none;
         z-index: 10;
-    }
+    } */
     
-    .nav-button {
+    /* .nav-button {
         background: rgba(68, 215, 182, 0.2);
         color: var(--primary-color);
         border: none;
@@ -1182,9 +1115,9 @@
     .nav-button:hover {
         background: var(--primary-color);
         color: var(--dark-bg);
-    }
+    } */
     
-    .testimonials-container {
+    /* .testimonials-container {
         position: relative;
         overflow: hidden;
     }
@@ -1228,7 +1161,7 @@
     .author-company {
         color: rgba(255, 255, 255, 0.7);
         font-size: 14px;
-    }
+    } */
     
     /* Contact Section Styles */
     .contact-section {
@@ -1445,9 +1378,9 @@
 </style>
 
 <!-- Additional JavaScript for testimonial slider -->
-<script>
-    // Testimonial slider functionality
-    document.addEventListener('DOMContentLoaded', function() {
+<!-- <script> -->
+    <!-- // Testimonial slider functionality -->
+    <!-- document.addEventListener('DOMContentLoaded', function() {
         const testimonials = document.querySelectorAll('.testimonial-card');
         const prevButton = document.querySelector('.prev-button');
         const nextButton = document.querySelector('.next-button');
@@ -1474,7 +1407,7 @@
             showTestimonial(currentIndex);
         }, 6000);
     });
-</script>
+</script> -->
 
 <!-- Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
