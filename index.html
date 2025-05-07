@@ -167,6 +167,8 @@
             color: var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
         .theme-toggle {
@@ -179,6 +181,8 @@
         
         /* Hero Section */
         .hero {
+            position: relative;
+            overflow: hidden;
             padding: 100px 0 60px;
             display: flex;
             align-items: center;
@@ -270,17 +274,17 @@
 }
 
 .bubble-3 {
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(to right, rgba(61, 220, 132, 0.17), rgba(156, 124, 255, 0.17));
+    content: "";
     position: absolute;
-    top: -100px;
-    left: 90%;
-    transform: translateX(-50%);
+    top: -80px;
+    left: 80px;
+    width: 370px;
+    height: 370px;
     border-radius: 50%;
-    z-index: 0; /* Behind others */
-    filter: blur(60px); /* Smooth edges */
-    animation: slow-rotate 20s linear infinite;
+    background: radial-gradient(#121212,#121212, var(--primary-color), #121212, #121212, #121212);
+    pointer-events: none;
+    filter: blur(20px);
+    filter: blur(-20px);
 }
 
         
@@ -479,9 +483,11 @@
         
         /* Skills Section */
         .skills-grid {
-            display: grid;
+            display: flex;  /*here i want it like a flowrow in android, the flowed elements also get centered*/
+            flex-wrap: wrap;
+            justify-content: center;
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 30px;
+            gap: 60px;
             margin-top: 50px;
         }
         
@@ -612,57 +618,9 @@
             background-color: var(--primary-color);
             color: var(--dark-bg);
         }
-        
-        /* Media Queries */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 48px;
-            }
-            
-            .project-large {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                padding: 60px 0 40px;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .section-title {
-                font-size: 36px;
-            }
-            
-            .skills-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .nav-links {
-                gap: 15px;
-            }
-            
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .btn {
-                width: 100%;
-            }
-        }
-    
+
     </style>
+    <script src="navbar.js"></script>
 </head>
 <body id="top">
     <!-- Header -->
@@ -670,7 +628,7 @@
         <div class="container header-content">
             <a href="#top" class="logo">Prudam<span>Dutta</span></a>
             <nav class="nav-links">
-                <a href="#top" class="active">Portfolio</a>
+                <a href="#portfolio" class="active">Portfolio</a>
                 <a href="#clients">Clients</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
@@ -713,7 +671,7 @@
         </div>
         <div class="skill-item">
             <div class="skill-icon">
-                <span>&lt;/&gt;</span>
+                <span><></span>
             </div>
             <div class="skill-name">Kotlin</div>
         </div>
@@ -725,13 +683,19 @@
         </div>
         <div class="skill-item">
             <div class="skill-icon">
-                <span>C++</span>
+                <span>{ }</span>
+            </div>
+            <div class="skill-name">REST APIs</div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>#</span>
             </div>
             <div class="skill-name">C/C++</div>
         </div>
         <div class="skill-item">
             <div class="skill-icon">
-                <span>&lt;/&gt;</span>
+                <span>Py</span>
             </div>
             <div class="skill-name">Python</div>
         </div>
@@ -759,6 +723,13 @@
             </div>
             <div class="skill-name">Figma</div>
         </div>
+        <div class="skill-item">
+            <div class="skill-icon">
+                <span>↝</span>
+            </div>
+            <div class="skill-name">Vector Arts</div>
+        </div>
+        
     </div>
 </section>
 
@@ -793,80 +764,70 @@
     <!-- About Section -->
     <section id="about" class="section container">
         <h2 class="section-title">About Me</h2>
-        
+      
         <div class="about-content">
-            <div class="about-image">
-                <img src="res/uesrprofile.jpg" alt="Prudam's profile image" class="profile-image">
-            </div>
-            <div class="about-text">
-                <p class="about-description">
-                    I'm Prudam Dutta, an Android developer passionate about creating beautiful, 
-                    functional mobile applications using Kotlin and Jetpack Compose. I specialize in 
-                    crafting intuitive user experiences that combine aesthetic design with technical 
-                    excellence.
-                </p>
-                <p class="about-description mt-30">
-                    Currently pursuing my B.Tech in ECE at Tezpur University, I also work as a 
-                    freelance Android developer on various client projects. I'm skilled in UI/UX 
-                    design with tools like Figma and Adobe Illustrator, and I'm passionate about 
-                    building clean, user-centric mobile apps that solve real-world problems.
-                </p>
-                
-                <div class="education-section mt-30">
-                    <h3 class="sub-heading">Education</h3>
-                    <div class="education-item">
-                        <div class="edu-icon">🎓</div>
-                        <div class="edu-details">
-                            <h4>B.Tech ECE, Tezpur University</h4>
-                            <p>2023 - Present</p>
-                        </div>
-                    </div>
-                    <div class="education-item">
-                        <div class="edu-icon">🎓</div>
-                        <div class="edu-details">
-                            <h4>Higher Secondary, Pragya Academy</h4>
-                            <p>2020 - 2022</p>
-                        </div>
-                    </div>
-                    <div class="education-item">
-                        <div class="edu-icon">🏆</div>
-                        <div class="edu-details">
-                            <h4>JEE Mains 2023</h4>
-                            <p>92 percentile</p>
-                        </div>
-                    </div>
+          <div class="about-left">
+            <p class="about-description">
+              I'm Prudam Dutta, an Android developer passionate about creating beautiful, 
+              functional mobile applications using Kotlin and Jetpack Compose. I specialize in 
+              crafting intuitive user experiences that combine aesthetic design with technical 
+              excellence.
+            </p>
+            <p class="about-description mt-30">
+              Currently pursuing my B.Tech in ECE at Tezpur University, I also work as a 
+              freelance Android developer on various client projects. I'm skilled in UI/UX 
+              design with tools like Figma and Adobe Illustrator, and I'm passionate about 
+              building clean, user-centric mobile apps that solve real-world problems.
+            </p>
+          </div>
+      
+          <div class="about-right">
+            <div class="education-section mt-30">
+              <h3 class="sub-heading">Education</h3>
+              <div class="education-item">
+                <div class="edu-icon">🎓</div>
+                <div class="edu-details">
+                  <h4>B.Tech ECE, Tezpur University</h4>
+                  <p>2023 - Present</p>
                 </div>
-                
-                <div class="social-links mt-30">
-                    <a href="#" class="social-icon">
-                        <div class="icon-circle">
-                            <i class="fab fa-github"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <div class="icon-circle">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <div class="icon-circle">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <div class="icon-circle">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <div class="icon-circle">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                    </a>
+              </div>
+              <div class="education-item">
+                <div class="edu-icon">🎓</div>
+                <div class="edu-details">
+                  <h4>Higher Secondary, Pragya Academy</h4>
+                  <p>2020 - 2022</p>
                 </div>
+              </div>
+              <div class="education-item">
+                <div class="edu-icon">🏆</div>
+                <div class="edu-details">
+                  <h4>JEE Mains 2023</h4>
+                  <p>92 percentile</p>
+                </div>
+              </div>
             </div>
+      
+            <div class="social-links mt-30">
+              <a href="#" class="social-icon">
+                <div class="icon-circle"><i class="fab fa-github"></i></div>
+              </a>
+              <a href="#" class="social-icon">
+                <div class="icon-circle"><i class="fab fa-linkedin"></i></div>
+              </a>
+              <a href="#" class="social-icon">
+                <div class="icon-circle"><i class="fab fa-youtube"></i></div>
+              </a>
+              <a href="#" class="social-icon">
+                <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+              </a>
+              <a href="#" class="social-icon">
+                <div class="icon-circle"><i class="fab fa-instagram"></i></div>
+              </a>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+      
 
     <!-- Stats Section -->
     <section id="stats" class="section stats-section">
@@ -1061,12 +1022,20 @@
 <style>
     /* About Section Styles */
     .about-content {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 40px;
-        align-items: flex-start;
-    }
-    
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 30px;
+}
+.about-left {
+  flex: 1 1 60%;
+  min-width: 250px;
+}
+
+.about-right {
+  flex: 1 1 35%;
+  min-width: 200px;
+}
     .profile-image {
         width: 100%;
         border-radius: 16px;
@@ -1080,7 +1049,7 @@
     }
     
     .education-section {
-        margin-top: 30px;
+        margin-top: -7px;
     }
     
     .sub-heading {
@@ -1090,16 +1059,16 @@
     }
     
     .education-item {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 15px;
-    }
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
     
-    .edu-icon {
-        font-size: 24px;
-        color: var(--primary-color);
-    }
+.edu-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
     
     .edu-details h4 {
         font-size: 18px;
@@ -1111,23 +1080,28 @@
     }
     
     .social-links {
-        display: flex;
-        gap: 15px;
-        margin-top: 30px;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+.social-icon {
+  text-decoration: none;
+}
     
     .icon-circle {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid var(--primary-color);
-        color: var(--primary-color);
-        font-size: 22px;
-        transition: all 0.3s;
-    }
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: black;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
     
     .icon-circle:hover {
         background-color: var(--primary-color);
@@ -1337,7 +1311,7 @@
     }
     
     /* Media Queries for New Sections */
-    @media (max-width: 992px) {
+    /* @media (max-width: 992px) {
         .about-content {
             grid-template-columns: 1fr;
         }
@@ -1375,7 +1349,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-    }
+    } */
 </style>
 
 <!-- Font Awesome for icons -->
