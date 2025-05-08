@@ -18,9 +18,11 @@ fetch('testimonials.json')
       card.innerHTML = `
         <p class="testimonial-text">"${t.text}"</p>
         <div class="testimonial-author">
-          <div class="author-name">${t.author.name}</div>
+          <div class="author-name">~ ${t.author.name}</div>
           <div class="author-role">${t.author.role}</div>
+          <br>
           <div class="author-company">${t.author.company}</div>
+          <div class="author-company">${t.author.time}</div>
         </div>
       `;
       

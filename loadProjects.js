@@ -17,14 +17,19 @@ fetch('clientproject.json')
 
       const cardHTML = `
         <div class="project-card">
-          <div class="project-header ${project.class}">
-            <div class="project-icon">${project.title}</div>
+          <div class="project-image">
+            <img src="/res/${project.image}" alt="Project Image" onerror="this.src='/res/default.jpg'" />
           </div>
           <div class="project-content">
             <h3 class="project-title">${project.subtitle}</h3>
             <p class="project-description">${project.description}</p>
             <div class="project-tags">${techTags}</div>
             <div class="project-features">${featureList}</div>
+            ${project.playstoreLink ? `
+              <div class="project-link">
+                <br>
+                <a href="${project.playstoreLink}" target="_blank" rel="noopener">View on Play Store</a>
+              </div>` : ''}
           </div>
         </div>
       `;
@@ -33,5 +38,5 @@ fetch('clientproject.json')
     });
   })
   .catch(error => {
-    console.error("Failed to load project data:", error);
+    console.error("Failed to load client project data:", error);
   });

@@ -1,17 +1,21 @@
 [
+  {
+    "image": "habify.png",
+    "title": "Habify",
+    "subtitle": "Habify: Habit & Task Manager",
+    "description": "A productivity app designed to help users build habits and manage daily tasks with reminders, progress tracking, and motivation features.",
+    "technologies": ["Kotlin", "Jetpack Compose", "Firebase", "Glance App Widget"],
+    "features": [
+      "Habit tracking and scheduling with reminders",
+      "Cloud-based database and account system for multi-device sync",
+      "App widget, customizable themes, and reminders for better accessibility"
+    ],
+    "class": "productivity",
+    "playstoreLink" : "https://play.google.com/store/apps/details?id=com.psydrite.habify"
+  }
+  ,
     {
-      "title": "Personal Finance",
-      "subtitle": "Expense Manager App",
-      "description": "Helps users manage personal finances with real-time expense tracking, budgeting, and analysis.",
-      "technologies": ["Kotlin", "Firebase", "MPAndroidChart"],
-      "features": [
-        "Budget tracking with visual charts",
-        "Expense categorization using ML",
-        "Daily notifications for over-limit spending"
-      ],
-      "class": "finance"
-    },
-    {
+      "image": "android.png",
       "title": "Health Monitor",
       "subtitle": "Vitals Tracking App",
       "description": "Monitors heart rate, blood pressure, and oxygen levels using wearable sensors and syncs to cloud.",
