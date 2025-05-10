@@ -18,7 +18,7 @@ fetch('playstoreproject.json')
       const cardHTML = `
         <div class="project-card">
           <div class="project-image">
-            <img src="/res/${project.image}" alt="Project Image" />
+            <img src="res/${project.image}" alt="Project Image" />
           </div>
           <div class="project-content">
             <h3 class="project-title">${project.subtitle}</h3>
