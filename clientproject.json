@@ -10,7 +10,9 @@
       "Real-time donor-recipient location tracking and notifications",
       "Blood type filters, user verification, and donor history log"
     ],
-    "class": "healthcare"
+    "class": "healthcare",
+    "playstoreLink": "",
+    "githubLink" : ""
   }
   
   ,

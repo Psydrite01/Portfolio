@@ -22,6 +22,20 @@
   /* your other styles here */
 }
 
+.project-link-row {
+  display: flex;
+  gap: 16px; /* space between links */
+  margin-top: 10px;
+}
+
+.project-link-row a {
+  text-decoration: none;
+  color: var(--primary-color);
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+
 
         .project-card {
   flex: 0 0 clamp(470px, 30vw, 350px); /* Min 300px, max 350px scaling with screen size */
@@ -47,7 +61,7 @@
   scrollbar-width: none;
 
   mask-image: linear-gradient(to right, black 96%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, #121212 80%, transparent 100%);
 }
 
 
@@ -698,11 +712,11 @@
 <section id="skills" class="section container">
     <div class="skills-grid">
         <div class="skill-item">
-            <div class="skill-icon">
-                <span style="display: inline-block; transform: rotate(90deg)">▭</span>
-            </div>
-            <div class="skill-name">Android SDK</div>
-        </div>
+  <div class="skill-icon">
+    <i class="fab fa-android" style="font-size: 24px;"></i>
+  </div>
+  <div class="skill-name">Android SDK</div>
+</div>
         <div class="skill-item">
             <div class="skill-icon">
                 <span><></span>
@@ -710,17 +724,17 @@
             <div class="skill-name">Kotlin</div>
         </div>
         <div class="skill-item">
-            <div class="skill-icon">
-                <span>⊞</span>
-            </div>
-            <div class="skill-name">Jetpack Compose</div>
-        </div>
+  <div class="skill-icon">
+    <i class="fas fa-window-restore" style="font-size: 24px;"></i>
+  </div>
+  <div class="skill-name">Jetpack Compose</div>
+</div>
         <div class="skill-item">
-            <div class="skill-icon">
-                <span>{ }</span>
-            </div>
-            <div class="skill-name">REST APIs</div>
-        </div>
+  <div class="skill-icon">
+    <i class="fas fa-plug" style="font-size: 24px;"></i>
+  </div>
+  <div class="skill-name">REST APIs</div>
+</div>
         <div class="skill-item">
             <div class="skill-icon">
                 <span>#</span>
@@ -734,35 +748,35 @@
             <div class="skill-name">Python</div>
         </div>
         <div class="skill-item">
-            <div class="skill-icon">
-                <span>↗↙</span>
-            </div>
-            <div class="skill-name">MVVM</div>
-        </div>
+  <div class="skill-icon">
+    <i class="fas fa-layer-group" style="font-size: 24px;"></i>
+  </div>
+  <div class="skill-name">MVVM</div>
+</div>
         <div class="skill-item">
-            <div class="skill-icon">
-                <span>≡</span>
-            </div>
-            <div class="skill-name">Firebase/Firestore</div>
-        </div>
+  <div class="skill-icon">
+    <i class="fas fa-fire" style="font-size: 24px;"></i>
+  </div>
+  <div class="skill-name">Firebase</div>
+</div>
         <div class="skill-item">
-            <div class="skill-icon">
-                <span>☁︎</span>
-            </div>
-            <div class="skill-name">Git/GitHub</div>
-        </div>
+  <div class="skill-icon">
+    <i class="fab fa-github" style="font-size: 24px;"></i>
+  </div>
+  <div class="skill-name">Git/ GitHub</div>
+</div>
         <div class="skill-item">
-            <div class="skill-icon">
-                <span>✎</span>
-            </div>
-            <div class="skill-name">Figma</div>
-        </div>
+  <div class="skill-icon">
+    <i class="fas fa-draw-polygon" style="font-size: 24px;"></i>
+  </div>
+  <div class="skill-name">Figma</div>
+</div>
         <div class="skill-item">
-            <div class="skill-icon">
-                <span>↝</span>
-            </div>
-            <div class="skill-name">Vector Arts</div>
-        </div>
+  <div class="skill-icon">
+    <i class="fas fa-vector-square" style="font-size: 24px;"></i>
+  </div>
+  <div class="skill-name">Vector Arts</div>
+</div>
         
     </div>
 </section>
@@ -784,7 +798,7 @@
 
     <!-- Play Store Apps Section -->
     <section id="play-store-apps" class="section container">
-        <h2 class="section-title">Personal Applications & Contributions</h2>
+        <h2 class="section-title">Personal Developments & Contributions</h2>
         <p class="section-description">Featured applications showcasing my expertise in Android development with Kotlin and Jetpack Compose. Either completely developed by me, or contributed in a team/internship.</p>
         
         <div class="project-scroll-container" id = "playstoreprojectGrid">
@@ -841,23 +855,6 @@
               </div>
             </div>
       
-            <div class="social-links mt-30">
-              <a href="#" class="social-icon">
-                <div class="icon-circle"><i class="fab fa-github"></i></div>
-              </a>
-              <a href="#" class="social-icon">
-                <div class="icon-circle"><i class="fab fa-linkedin"></i></div>
-              </a>
-              <a href="#" class="social-icon">
-                <div class="icon-circle"><i class="fab fa-youtube"></i></div>
-              </a>
-              <a href="#" class="social-icon">
-                <div class="icon-circle"><i class="fas fa-envelope"></i></div>
-              </a>
-              <a href="#" class="social-icon">
-                <div class="icon-circle"><i class="fab fa-instagram"></i></div>
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -910,7 +907,7 @@
           <div class="contact-grid">
             <div class="contact-form-container">
               <div class="direct-email">
-                <span>Direct Email:</span>
+                <span id="direct-email-text">Direct Email:</span>
                 <a href="mailto:prudompdutta2017@gmail.com" class="email-link">
                   <i class="fas fa-envelope"></i> prudompdutta2017@gmail.com
                 </a>
@@ -924,10 +921,7 @@
                   <label for="name">Name</label>
                   <input type="text" id="name" placeholder="Your name" class="form-input" required>
                 </div>
-      
-  
-            <!-- Email field removed -->
-  
+    
             <div class="form-group">
               <label for="project-type">Project Type</label>
               <select id="project-type" class="form-input" required>
@@ -952,26 +946,81 @@
           <div class="contact-info-card">
             <h3>Contact Information</h3>
   
-            <div class="contact-info-item">
-              <div class="info-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="info-content">
-                <h4>Email</h4>
-                <p>prudompdutta2017@gmail.com</p>
-                <p>psydriteofficial@gmail.com</p>
-              </div>
-            </div>
-  
-            <div class="contact-info-item">
-              <div class="info-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div class="info-content">
-                <h4>Location</h4>
-                <p>Jorhat, Assam, India</p>
-              </div>
-            </div>
+ 
+<!-- Email Info Row -->
+ <div class="contact-info-container2">
+
+ <div class="contact-info-container3">
+<div class="contact-info-item">
+  <div class="info-icon">
+    <i class="fas fa-envelope"></i>
+  </div>
+  <div class="info-content">
+    <h4>Email</h4>
+    <p>prudompdutta2017@gmail.com</p>
+    <p>psydriteofficial@gmail.com</p>
+  </div>
+</div>
+<div class="contact-info-item">
+  <div class="info-icon">
+    <i class="fab fa-linkedin"></i>
+  </div>
+  <div class="info-content">
+    <h4>LinkedIn</h4>
+    <p>Prudam Dutta</p>
+  </div>
+</div>
+</div>
+
+<!-- Location Info Row -->
+ <div class="contact-info-container3">
+<div class="contact-info-item">
+  <div class="info-icon">
+    <i class="fas fa-map-marker-alt"></i>
+  </div>
+  <div class="info-content">
+    <h4>Location</h4>
+    <p>Assam, India</p>
+    <br>
+  </div>
+  </div>
+<div class="contact-info-item">
+  <div class="info-icon">
+    <i class="fab fa-github"></i>
+  </div>
+  <div class="info-content">
+    <h4>GitHub</h4>
+    <p>Psydrite01</p>
+  </div>
+  </div>
+</div>
+</div>
+           <!-- Social Icons Row -->
+<!-- <div class="social-links mt-30">
+  <a href="#" class="social-icon-with-text">
+  <div class="icon-circle"><i class="fab fa-github"></i></div>
+  <span class="icon-label">Psydrite01</span>
+</a>
+<a href="#" class="social-icon-with-text">
+  <div class="icon-circle"><i class="fab fa-linkedin"></i></div>
+  <span class="icon-label">Prudam Dutta</span>
+</a>
+<a href="#" class="social-icon-with-text">
+  <div class="icon-circle"><i class="fab fa-android"></i></div>
+  <span class="icon-label">Psydrite Studios</span>
+</a> -->
+  <!-- <a href="#" class="social-icon">
+    <div class="icon-circle"><i class="fab fa-youtube"></i></div>
+  </a>
+  <a href="#" class="social-icon">
+    <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+  </a>
+  <a href="#" class="social-icon">
+    <div class="icon-circle"><i class="fab fa-instagram"></i></div>
+  </a> -->
+<!-- </div> -->
+
+
           </div>
   
           <div class="availability-card">
@@ -1115,10 +1164,21 @@
     
     .social-links {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   gap: 10px;
   margin-top: 15px;
 }
+.social-icon-with-text {
+  display: flex;
+  align-items: center;
+  gap: 0px; /* space between icon and text */
+  text-decoration: none;
+  margin-right: 10px;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
 .social-icon {
   text-decoration: none;
 }
@@ -1127,7 +1187,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: black;
+  background: transparent;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   display: flex;
@@ -1189,6 +1249,10 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+
+    #direct-email-text {
+        margin-bottom: 10px;
     }
     
     .email-link {
@@ -1270,8 +1334,23 @@
         display: flex;
         gap: 15px;
         margin-bottom: 25px;
+        margin-right: 40px;
     }
-    
+
+    .contact-info-container2{
+        display: flex;
+        margin-top: 40px;
+        justify-content: space-between;
+
+    }
+    .contact-info-container3{
+    display: flex;           /* Correct keyword */
+    flex-direction: column;  /* Stack children vertically */
+    }
+    .contact-info-container4{
+    display: flex;           /* Correct keyword */
+    flex-direction: column;  /* Stack children vertically */
+    }
     .info-icon {
         color: var(--primary-color);
         font-size: 22px;
