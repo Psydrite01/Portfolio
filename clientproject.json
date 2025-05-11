@@ -1,14 +1,14 @@
 [
   {
-    "image": "android.png",
+    "image": "blooddonation.jpg",
     "title": "BloodConnect",
     "subtitle": "BloodConnect: Donate & Request Blood",
     "description": "A life-saving platform that connects blood donors with recipients in real-time, enabling fast, location-based blood requests and community support.",
     "technologies": ["Kotlin", "Jetpack Compose", "Firebase", "Admin Authentication"],
     "features": [
       "Post and respond to urgent blood donation requests",
-      "Real-time donor-recipient location tracking and notifications",
-      "Blood type filters, user verification, and donor history log"
+      "Users can post blood requests, and access an emergency contact list.",
+      "Includes user verification and a dedicated admin panel."
     ],
     "class": "healthcare",
     "playstoreLink": "",
@@ -17,17 +17,35 @@
   
   ,
     {
-      "image": "android.png",
-      "title": "Health Monitor",
-      "subtitle": "Vitals Tracking App",
-      "description": "Monitors heart rate, blood pressure, and oxygen levels using wearable sensors and syncs to cloud.",
-      "technologies": ["Kotlin", "Bluetooth", "Firebase"],
-      "features": [
-        "Real-time sync with fitness bands",
-        "Daily vitals report to doctors",
-        "SOS alerts for abnormal readings"
-      ],
-      "class": "health"
-    }
+  "image": "android.png",
+  "title": "Finance Manager",
+  "subtitle": "Personal Finance Tracker",
+  "description": "A budget tracking app built with a custom UI, Room Database, and analytics charts. Developed for an anonymous client to manage daily expenses and financial goals.",
+  "technologies": ["Kotlin", "Jetpack Compose", "Room DB"],
+  "features": [
+    "Add and categorize income and expenses",
+    "Interactive analytics with pie and bar charts",
+    "Monthly budget planning and spending alerts"
+  ],
+  "class": "Personal Project",
+  "playstoreLink": "",
+  "githubLink": ""
+},
+{
+  "image": "vridblogapp.jpg",
+  "title": "Vrid Blog App",
+  "subtitle": "Vrid Blog App",
+  "description": "A blog reader Android app integrated with infinite pagination, offline caching, web view and embedded images. Developed under Vrid Wealth Technology Solutions Pvt Ltd. as an assessment. Fetches blog posts from a WordPress API.",
+  "technologies": ["Kotlin", "Jetpack Compose", "Retrofit", "Coroutines", "Web View"],
+  "features": [
+    "Fetch and display blog posts from WordPress API",
+    "Infinite scrolling pagination and offline caching",
+    "UI with Material Design components"
+  ],
+  "class": "Personal Project",
+  "playstoreLink": "",
+  "githubLink": "https://github.com/Psydrite01/vrid-blog-app"
+}
+
   ]
   

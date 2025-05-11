@@ -44,6 +44,11 @@ fetch('clientproject.json')
 
       container.innerHTML += cardHTML;
     });
+    // Add the spacer after all projects are displayed
+    const spacerHTML = `<div class="spacer">
+    hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    </div>`;
+    container.innerHTML += spacerHTML;
   })
   .catch(error => {
     console.error("Failed to load client project data:", error);
