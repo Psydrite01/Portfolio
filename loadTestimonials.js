@@ -32,6 +32,11 @@ fetch('testimonials.json')
       // Append card to container
       container.appendChild(card);
     });
+    // Add the spacer after all projects are displayed
+    const spacerHTML = `<div class="spacer">
+    hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    </div>`;
+    container.innerHTML += spacerHTML;
   })
   .catch(error => {
     console.error("Failed to load testimonials:", error);
