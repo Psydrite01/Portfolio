@@ -6,6 +6,7 @@
     <title>Prudam Dutta - Android Developer & UI/UX Designer</title>
     <style>
         .project-scroll-container {
+          margin-left: 15px;
   position: relative;
   display: flex;
   overflow-x: auto;
@@ -53,7 +54,7 @@
     
     .testimonial-scroll-container {
   display: flex;
-  overflow-x: auto;
+  overflow-x:auto;
   gap: 1rem;
   padding: 1rem 0;
   scroll-snap-type: x mandatory;
@@ -690,7 +691,7 @@
             <h1>Android<br>Developer<br><span class="highlight">Kotlin Specialist</span></h1>
             <p>Crafting beautiful, performant mobile experiences with Jetpack Compose and modern Android development techniques.</p>
             <div class="cta-buttons">
-                <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                <a href="#clients" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-outline">Get In Touch</a>
             </div>
         </div>
@@ -709,7 +710,7 @@
 
     
     <!-- Skills Section -->
-<section id="skills" class="section container">
+<section id="skills" class="section container test-heading">
     <div class="skills-grid">
         <div class="skill-item">
   <div class="skill-icon">
@@ -784,7 +785,7 @@
 
     <!-- Client Projects Section -->
     <section id="clients" class="section container">
-        <h2 class="section-title">Client Projects</h2>
+        <h2 class="section-title test-heading">Client Projects</h2>
         <p class="section-description">A selection of custom Android applications developed for clients across various industries, demonstrating versatility and problem-solving abilities.</p>
         
 
@@ -798,7 +799,7 @@
 
     <!-- Play Store Apps Section -->
     <section id="play-store-apps" class="section container">
-        <h2 class="section-title">Personal Developments & Contributions</h2>
+        <h2 class="section-title test-heading">Personal Developments & Contributions</h2>
         <p class="section-description">Featured applications showcasing my expertise in Android development with Kotlin and Jetpack Compose. Either completely developed by me, or contributed in a team/internship.</p>
         
         <div class="project-scroll-container" id = "playstoreprojectGrid">
@@ -811,7 +812,7 @@
 
     <!-- About Section -->
     <section id="about" class="section container">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title test-heading">About Me</h2>
       
         <div class="about-content">
           <div class="about-left">
@@ -831,7 +832,7 @@
       
           <div class="about-right">
             <div class="education-section mt-30">
-              <h3 class="sub-heading">Education</h3>
+              <h3 class="sub-heading test-heading">Education</h3>
               <div class="education-item">
                 <div class="edu-icon">🎓</div>
                 <div class="edu-details">
@@ -886,7 +887,7 @@
 
     <!-- Testimonials Section -->
     <section class="section container">
-        <h2 class="section-title">Testimonials</h2>
+        <h2 class="section-title test-heading">Testimonials</h2>
         <p class="section-description">What my clients and colleagues say about working with me</p>
       
         <div class="testimonial-scroll-container" id="testimonialContainer">
@@ -899,7 +900,7 @@
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="container">
-          <h2 class="section-title">Get In Touch</h2>
+          <h2 class="section-title test-heading">Get In Touch</h2>
           <p class="section-description">
             Have a project in mind? Let's discuss how I can help bring your Android app idea to life.
           </p>
@@ -1505,6 +1506,7 @@
   }
   
   .cta-buttons {
+    /* flex-direction: row; */
     justify-content: center;
   }
   
@@ -1634,6 +1636,9 @@
   .container {
     padding: 0 20px;
   }
+  .hero {
+    padding-top: 50px;
+  }
   
   .section {
     padding: 30px 0;
@@ -1656,7 +1661,7 @@
   }
   
   .cta-buttons {
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
   }
   
@@ -1735,8 +1740,12 @@
   .contact-info-item,
   .testimonial-text,
   .availability-list li {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .test-heading{
+    padding-left: 15px;
   }
   
   /* Reduce spacing between sections */
