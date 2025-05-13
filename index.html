@@ -1474,6 +1474,295 @@
             justify-content: center;
         }
     } */
+/* Add this to the end of your existing CSS */
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Hero section adjustments */
+  .hero {
+    flex-direction: column;
+    padding: 60px 0 40px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    order: 2;
+  }
+  
+  .hero-image {
+    order: 1;
+    margin-bottom: 40px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+  }
+  
+  .cta-buttons {
+    justify-content: center;
+  }
+  
+  /* Skills section */
+  .skills-grid {
+    gap: 30px;
+  }
+  
+  /* Stats section */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .stat-item {
+    padding: 20px 10px;
+  }
+  
+  .stat-number {
+    font-size: 36px;
+  }
+  
+  /* Project grid for smaller screens */
+  .project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  /* Project showcase */
+  .project-large {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Project cards in scroll container */
+  .project-card {
+    flex: 0 0 clamp(260px, 80vw, 350px);
+  }
+  
+  /* Contact section */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Footer adjustments */
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-nav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Header for mobile */
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  /* Headings size reduction */
+  .section-title {
+    font-size: 36px;
+  }
+  
+  /* Hero section */
+  .hero h1 {
+    font-size: 36px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+  }
+  
+  /* Bubble adjustments */
+  .bubble-1 {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .bubble-2 {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .bubble-3 {
+    width: 320px;
+    height: 320px;
+  }
+  
+  /* Testimonial cards */
+  .testimonial-card {
+    width: 90vw !important;
+    padding: 12px;
+  }
+  
+  /* Contact info container */
+  .contact-info-container2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Project details */
+  .project-content {
+    padding: 15px;
+  }
+  
+  .project-title {
+    font-size: 20px;
+  }
+  
+  /* Form elements */
+  .form-input {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Basic spacing */
+  .container {
+    padding: 0 20px;
+  }
+  
+  .section {
+    padding: 30px 0;
+    margin-bottom: -10px; /* Reduce vertical spacing between sections */
+  }
+  
+  /* Header and navigation */
+  .nav-links {
+    gap: 5px;
+    font-size: 14px;
+  }
+  
+  .nav-links a {
+    font-size: 14px;
+  }
+  
+  /* Hero section further adjustments */
+  .hero h1 {
+    font-size: 32px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  /* Skills grid */
+  .skills-grid {
+    gap: 20px;
+  }
+  
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+}
+  @media (max-width: 576px) {
+  /* Stats section for mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 15px;
+    column-gap: 10px;
+  }
+  
+  .stat-item {
+    padding: 15px 5px;
+  }
+  
+  .stat-number {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+  }
+  
+  /* Project cards */
+  .project-scroll-container {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+  
+  .project-card {
+    flex: 0 0 85vw;
+  }
+  
+  /* Project links */
+  .project-link-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Form and contact info */
+  .contact-info-item {
+    margin-right: 0;
+  }
+  
+  /* Footer */
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+}
+
+/* Content padding for all text elements on small screens */
+@media (max-width: 768px) {
+  .section-description, 
+  .project-description, 
+  .about-description,
+  .education-item,
+  .contact-form-container,
+  .contact-info-item,
+  .testimonial-text,
+  .availability-list li {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  /* Reduce spacing between sections */
+  .section + .section {
+    margin-top: -15px;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Additional fixes for specific elements */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.project-image {
+  width: 100%;
+  max-width: 400px;
+}
+    
+
 </style>
 
 <!-- Font Awesome for icons -->
