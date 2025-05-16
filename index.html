@@ -810,6 +810,18 @@
 
     </section>
 
+    <!-- Roles and Certifications Section -->
+<section id="achievements" class="section container">
+    <h2 class="section-title test-heading">Roles and Certifications</h2>
+    <p class="section-description">Professional roles and industry certifications highlighting my expertise in Android development and related technologies.</p>
+    
+    <div class="achievements-scroll-container" id="achievementsContainer">
+        <!-- Achievement cards will be injected here by loadAchievements.js -->
+    </div>
+</section>
+
+<script src="loadAchievements.js" defer></script>
+
     <!-- About Section -->
     <section id="about" class="section container">
         <h2 class="section-title test-heading">About Me</h2>
@@ -1475,6 +1487,125 @@
             justify-content: center;
         }
     } */
+
+    /* Roles and Certifications Section Styles */
+.achievements-scroll-container {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+  margin-left: 15px;
+  
+  mask-image: linear-gradient(to right, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, #121212 80%, transparent 100%);
+}
+
+.achievement-image {
+  width: 420px;
+  height: 236px; /* 16:9 ratio */
+  margin-bottom: 30px;
+  overflow: hidden; /* ensures the child image respects border-radius */
+  border-radius: 12px;
+}
+
+.achievement-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the div while maintaining aspect */
+  display: block;
+}
+
+.achievements-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.achievement-card {
+  flex: 0 0 clamp(420px, 30vw, 350px);
+  scroll-snap-align: start;
+  border-radius: 12px;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.achievement-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.achievement-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(68, 215, 182, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 22px;
+}
+
+.achievement-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.achievement-org {
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.achievement-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.achievement-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.achievement-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.view-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .achievement-card {
+    flex: 0 0 clamp(260px, 80vw, 350px);
+  }
+}
+
+@media (max-width: 576px) {
+  .achievement-card {
+    flex: 0 0 85vw;
+  }
+}
 /* Add this to the end of your existing CSS */
 
 /* Responsive Styles */

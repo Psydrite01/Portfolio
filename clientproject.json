@@ -30,21 +30,6 @@
   "class": "Personal Project",
   "playstoreLink": "",
   "githubLink": ""
-},
-{
-  "image": "vridblogapp.jpg",
-  "title": "Vrid Blog App",
-  "subtitle": "Vrid Blog App",
-  "description": "A blog reader Android app integrated with infinite pagination, offline caching, web view and embedded images. Developed under Vrid Wealth Technology Solutions Pvt Ltd. as an assessment. Fetches blog posts from a WordPress API.",
-  "technologies": ["Kotlin", "Jetpack Compose", "Retrofit", "Coroutines", "Web View"],
-  "features": [
-    "Fetch and display blog posts from WordPress API",
-    "Infinite scrolling pagination and offline caching",
-    "UI with Material Design components"
-  ],
-  "class": "Personal Project",
-  "playstoreLink": "",
-  "githubLink": "https://github.com/Psydrite01/vrid-blog-app"
 }
 
   ]
