@@ -3,22 +3,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const achievements = [
         {
             id: 1,
-            title: "Android Developer Intern",
-            organization: "TechFusion Labs",
-            date: "Jan 2024 - Apr 2024",
-            description: "Developed and maintained Android applications using Kotlin and Jetpack Compose. Implemented MVVM architecture and integrated Firebase services.",
-            icon: "fas fa-briefcase",
-            tags: ["Kotlin", "Jetpack Compose", "Firebase"],
-            image: "res/android.png"
-        },
-        {
-            id: 2,
-            title: "Google Associate Android Developer",
-            organization: "Google Developers",
-            date: "November 2023",
-            description: "Certified for demonstrating proficiency in Android development with Kotlin, including UI implementation, data management, and debugging.",
+            title: "Android Development Certification",
+            organization: "Udemy",
+            date: "May 2025",
+            description: "The Complete Android 14 & Kotlin Development Masterclass certificate by Udemy",
             icon: "fas fa-certificate",
-            tags: ["Android", "Kotlin", "Certification"]
+            tags: ["Kotlin", "Jetpack Compose", "Firebase"],
+            image: "res/udemyandroidmasterclass.png",
+            link: "https://www.linkedin.com/posts/prudam-dutta-7b85682a7_udemy-course-completion-certificate-activity-7329193063669485571-h9Ld?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEnxjHwBnqhE5JW-r5SddeXd6u74u2Al5c4"
+        },
+        {id: 1,
+            title: "Android Developmentgsdfgdsgfdgdg Certification",
+            organization: "Udemy",
+            date: "May 2025",
+            description: "The Complete Andrdfsssssssssssss gdfgd gfdggdf dgdsfgfdgds dgdfsgdsgsdfg dfsgfdgdfg dfg fdgdfsg fdsg fdgfgd fdg fdgfdg fd fgfdgs ssssssssssssssssssssssssg fdgfdsgsfdgfdsgd dfgsdoid 14 & Kotlin Development Masterclass certificate by Udemy",
+            icon: "fas fa-certificate",
+            tags: ["Kotlin", "Jetpack Compose", "Firebase"],
+            image: "res/habify.png"
         },
         {
             id: 3,
@@ -51,6 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const tagsHTML = achievement.tags.map(tag => 
             `<div class="tag">${tag}</div>`
         ).join('');
+
+        const linkHTML = achievement.link
+        ? `<a href="${achievement.link}" target="_blank" rel="noopener">View</a>`
+        : '';
         
         
         achievementCard.innerHTML = `
@@ -71,8 +76,17 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="achievement-tags">
                 ${tagsHTML}
             </div>
+            <div class="project-link-row">
+        ${linkHTML}
+      </div>
         `;
         
         achievementsContainer.appendChild(achievementCard);
+        
     });
+    // Add the spacer after all projects are displayed
+    const spacerHTML = `<div class="spacer">
+    hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    </div>`;
+    achievementsContainer.innerHTML += spacerHTML;
 });
