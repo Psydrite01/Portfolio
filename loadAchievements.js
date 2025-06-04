@@ -11,33 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
             tags: ["Kotlin", "Jetpack Compose", "Firebase"],
             image: "res/udemyandroidmasterclass.png",
             link: "https://www.linkedin.com/posts/prudam-dutta-7b85682a7_udemy-course-completion-certificate-activity-7329193063669485571-h9Ld?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEnxjHwBnqhE5JW-r5SddeXd6u74u2Al5c4"
-        },
-        {id: 1,
-            title: "Android Developmentgsdfgdsgfdgdg Certification",
-            organization: "Udemy",
-            date: "May 2025",
-            description: "The Complete Andrdfsssssssssssss gdfgd gfdggdf dgdsfgfdgds dgdfsgdsgsdfg dfsgfdgdfg dfg fdgdfsg fdsg fdgfgd fdg fdgfdg fd fgfdgs ssssssssssssssssssssssssg fdgfdsgsfdgfdsgd dfgsdoid 14 & Kotlin Development Masterclass certificate by Udemy",
-            icon: "fas fa-certificate",
-            tags: ["Kotlin", "Jetpack Compose", "Firebase"],
-            image: "res/habify.png"
-        },
-        {
-            id: 3,
-            title: "UI/UX Design Specialist",
-            organization: "DesignHub",
-            date: "May 2023 - Aug 2023",
-            description: "Created intuitive user interfaces and experiences for mobile applications. Specialized in material design principles and user-centric design.",
-            icon: "fas fa-palette",
-            tags: ["UI/UX", "Material Design", "Figma"]
-        },
-        {
-            id: 4,
-            title: "Firebase Expert Certification",
-            organization: "Google Cloud",
-            date: "July 2023",
-            description: "Recognized for expertise in implementing Firebase services, including Authentication, Firestore, and Cloud Functions in Android applications.",
-            icon: "fas fa-fire",
-            tags: ["Firebase", "Cloud", "Authentication"]
         }
     ];
 
