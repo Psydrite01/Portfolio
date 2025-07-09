@@ -13,7 +13,25 @@
     "class": "productivity",
     "playstoreLink" : "https://play.google.com/store/apps/details?id=com.psydrite.habify",
     "githubLink" : "https://play.google.com/store/apps/details?id=com.psydrite.habify"
-  }
+  },
+
+  {
+  "image": "lofigram.jpg",
+  "title": "Lofigram",
+  "subtitle": "Lofigram: Your Calm Space",
+  "description": "A serene lofi music and sound platform designed to help users relax, focus, and unwind with curated playlists, timers, and mindful screensavers.",
+  "technologies": ["Kotlin Jetpack","Vertex AI", "Media Player", "Firebase", "Ad Mob", "Play Billing", "Exoplayer"],
+  "features": [
+    "Lofi music streaming with category personalization",
+    "Favorites, downloads, and offline listening for premium users",
+    "Sleep timer, Pomodoro focus mode, and customizable screensaver",
+    "Global chat with anonymous mode and integrated AI bot"
+  ],
+  "class": "health & fitness",
+  "playstoreLink": "https://play.google.com/store/apps/details?id=com.psydrite.lofigram",
+  "githubLink": "https://github.com/Psydrite01/lofigram-public"
+}
+
 
   ]
   
